@@ -1,5 +1,7 @@
-// Given a rotated and sorted array like {6, 7, 8, 1, 2, 3} find an element
-
+// Given a rotated and sorted array like {6, 7, 8, 1, 2, 3} find an element.
+// Idea is to use binary search three times. The first time is to find the transition in the array
+// and the second and third time to search the two halves.
+ 
 public int find(int[] array, int target) {
     int len = array.length;
     
