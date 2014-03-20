@@ -60,10 +60,10 @@ public class Solver {
         int x = start.x;
         int y = start.y;
         // base case
-        if (x < 1 || x > M) {
+        if (x < 1 || x > N) {
             return false;
         }
-        if (y < 1 || y > N) {
+        if (y < 1 || y > M) {
             return false;
         }
         // Add a conditional to check current letter so don't have to waste time.
@@ -80,7 +80,7 @@ public class Solver {
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
                 if (i != x && j != y) {
-                    if (!visited(x+i, y+j) && (x+i)>0 && (x+i) <=N && (y+j) > 0 && (y+j) <= M) {
+                    if (!visited(x+i, y+j) && (x+i)>0 && (x+i) <= N && (y+j) > 0 && (y+j) <= M) {
                         if (dfs(new Position(x+i, y+j), curPrefix, board)) return true;  
                     }
                 }
