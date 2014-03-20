@@ -18,8 +18,10 @@ public class Solver {
     }
     
     boolean[][] visited;
+    String word;
             
     public boolean findWord(String word, String[][] board) {
+        this.word = word;
         int N = board.length;
         int M = board[0].length;
         visited = new boolean[N+2][M+2];
@@ -65,6 +67,9 @@ public class Solver {
             return false;
         }
         // Add a conditional to check current letter so don't have to waste time.
+        if (board[x][y] != word(prefix.length()) {
+            return false;
+        }  
         
         String curPrefix = prefix + board[x][y];
         if (word.equals(curPrefix)) {
