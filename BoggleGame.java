@@ -67,7 +67,7 @@ public class Solver {
             return false;
         }
         // Add a conditional to check current letter so don't have to waste time.
-        if (board[x][y] != word.substring(prefix.length(), prefix.length()+1) {
+        if (!board[x][y].equals(word.substring(prefix.length(), prefix.length()+1)) {
             return false;
         }  
         
