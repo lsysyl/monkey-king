@@ -25,7 +25,6 @@ public class Solver {
         int N = board.length;
         int M = board[0].length;
         visited = new boolean[N+2][M+2];
-        Arrays.fill(visited, false);
    
         Map<String, Collection<Position>> mem = new HashMap<String, Collection<Position>>();
         for(int i = 0; i < N; i++) {
@@ -47,6 +46,7 @@ public class Solver {
     
         Collection<Position> allPos = mem.get(firstLetter);
         for (Position pos : allPos) {
+            Arrays.fill(visited, false);
             if (dfs(pos, "", board) {
                 return true;
             }
