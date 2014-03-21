@@ -80,7 +80,7 @@ public class Solver {
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
                 if (i != 0 && j != 0) {
-                    if (!visited(x+i, y+j) && (x+i)>0 && (x+i) <= N && (y+j) > 0 && (y+j) <= M) {
+                    if (!visited[x+i][y+j] && (x+i)>0 && (x+i) <= N && (y+j) > 0 && (y+j) <= M) {
                         if (dfs(new Position(x+i, y+j), curPrefix, board)) return true;  
                     }
                 }
