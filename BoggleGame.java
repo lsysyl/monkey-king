@@ -39,7 +39,7 @@ public class Solver {
         }
     
         // With map, start checking all start positions with word[0]
-        String firstLetter = new String(word[0]);
+        String firstLetter = new String(word.substring(0,1));
         if (!mem.containsKey(firstLetter)) {
            return false;
         }
@@ -67,7 +67,7 @@ public class Solver {
             return false;
         }
         // Add a conditional to check current letter so don't have to waste time.
-        if (board[x][y] != word(prefix.length()) {
+        if (board[x][y] != word.substring(prefix.length(), prefix.length()+1) {
             return false;
         }  
         
