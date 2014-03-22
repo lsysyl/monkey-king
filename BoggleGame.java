@@ -18,10 +18,8 @@ public class Solver {
     }
     
     boolean[][] visited;
-    String word;
             
     public boolean findWord(String word, String[][] board) {
-        this.word = word;
         int N = board.length;
         int M = board[0].length;
         visited = new boolean[N+2][M+2];
@@ -47,14 +45,14 @@ public class Solver {
         Collection<Position> allPos = mem.get(firstLetter);
         for (Position pos : allPos) {
             Arrays.fill(visited, false);
-            if (dfs(pos, "", board) {
+            if (dfs(pos, "", board, word) {
                 return true;
             }
         }
         return false;                       
     }
 
-    private boolean dfs(Position start, String prefix, String[][] board) {
+    private boolean dfs(Position start, String prefix, String[][] board, String word) {
         int N = board.length;
         int M = board[0].length;
         int x = start.x;
@@ -79,10 +77,8 @@ public class Solver {
         // Check eight adjacent unvisited positions and recurse
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
-                if (i != 0 && j != 0) {
-                    if (!visited[x+i][y+j] && (x+i)>0 && (x+i) <= N && (y+j) > 0 && (y+j) <= M) {
-                        if (dfs(new Position(x+i, y+j), curPrefix, board)) return true;  
-                    }
+                if (!visited[x+i][y+j]) {
+                    if (dfs(new Position(x+i, y+j), curPrefix, board, word)) return true;  
                 }
             }
         }
